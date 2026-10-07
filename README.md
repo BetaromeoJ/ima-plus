@@ -36,16 +36,29 @@ CHANGELOG.md            更新履歴
 - CSS・JSを更新したら、`index.html` の `?v=` を更新日に変える。
 - Pilot期間は `noindex` を外さない。
 
-## 現在の状態（STEP 10 BUILD 第1段階）
+## 公開先
+
+- リポジトリ：`betaromeoj/ima-plus`
+- 公開URL（ルートURL＝入口＝第1回）：https://betaromeoj.github.io/ima-plus/
+- 参加者に最初に案内するこのURLは、今後も変えない。
+
+## 現在の状態（STEP 10 BUILD 第1段階＋素材の一部差し替え済み）
+
+差し替え済み：講師写真（`images/common/teacher-wada.jpg`）、LINE公式URL、公開URL（og:url）。
 
 次の素材は Placeholder です。Placeholderが残っている間は公開しません。
 `PLACEHOLDER:` で検索すると、すべての差し替え箇所が見つかります。
 
 - 操作スクリーンショット（iPhone／Android）と、Geminiを開く・Gemini Liveを始める手順の文
 - 「もうひとこと」の実際の回答画面（3枚）
-- 講師写真（`images/common/teacher-wada.jpg`）
-- LINE公式URL
 - OGP画像（任意）
+
+## 第2段階（実素材の差し替え）で必ず確認すること
+
+- Geminiの回答欄・操作スクリーンショットが、幅320px前後のスマートフォンでも、拡大操作を前提にせず読めるか（SPEC v0.2 9-1）。読めない場合は切り抜くか、2枚に分ける。
+- 実機確認：iPhone（Safari）、Android（Chrome）、LINEアプリ内ブラウザ。
+- `PLACEHOLDER:` の検索結果が0件になっていること。
+- 画面が公開直前のGeminiのUIと一致していること。
 
 ## 第2回を追加するとき（今は実施しない）
 

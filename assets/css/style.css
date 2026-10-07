@@ -355,9 +355,11 @@ ol {
 }
 
 .teacher__photo {
-  width: 10rem;
+  width: 10rem;                 /* 直径160px */
   height: 10rem;
   margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .teacher__name {
@@ -598,6 +600,10 @@ ol {
   margin-bottom: 1.5rem;
 }
 
+.help__cta {
+  margin: 1.5rem 0 0;
+}
+
 
 /* ==========================================================================
    Components
@@ -802,7 +808,7 @@ html[data-os="android"] .os-block[data-os="iphone"] {
   text-decoration: none;
 }
 
-/* ---------- Placeholder（第1段階のみ。公開前にすべて差し替える） ---------- */
+/* ---------- Placeholder（素材待ち。公開前にすべて差し替え、このブロックも削除する） ---------- */
 .placeholder {
   display: flex;
   align-items: center;
@@ -817,10 +823,6 @@ html[data-os="android"] .os-block[data-os="iphone"] {
   text-align: center;
 }
 
-.placeholder--circle {
-  border-radius: 50%;
-}
-
 /* スクリーンショットの寸法に近い縦長の枠 */
 .placeholder--screen {
   min-height: 18rem;
@@ -832,20 +834,6 @@ html[data-os="android"] .os-block[data-os="iphone"] {
   border-radius: var(--radius-small);
 }
 
-.placeholder--button {
-  flex-direction: column;
-  gap: 0.75rem;
-  margin-top: 1.5rem;
-}
-
-.button-primary--disabled {
-  opacity: 0.55;
-  cursor: not-allowed;
-}
-
-.placeholder__note {
-  display: block;
-}
 
 
 /* ==========================================================================

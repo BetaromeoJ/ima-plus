@@ -11,6 +11,7 @@
 
   <!-- OGP（SPEC v0.2 5-1） -->
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://betaromeoj.github.io/ima-plus/">
   <meta property="og:title" content="IMA+｜第1回 Geminiと話してみよう">
   <meta property="og:description" content="「今さら」を、「今から」へ。スマホとAIで、今の暮らしに新しい「できる」をひとつプラス。IMA+第1回の教材ページです。忘れたときは、いつでもここに戻ってきてください。">
   <!-- PLACEHOLDER: og-image｜素材待ち：OGP画像。素材が届くまで og:image は設定しない -->
@@ -22,8 +23,8 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPMincho&amp;display=swap&amp;text=%E3%80%8C%E4%BB%8A%E3%81%95%E3%82%89%E3%80%8D%E3%82%92%E3%80%81%E3%81%8B%E3%81%B8%E3%80%82%E6%9C%80%E5%BE%8C%E3%81%AB%E6%B1%BA%E3%82%81%E3%82%8B%E3%81%AE%E3%81%AF%E3%81%82%E3%81%AA%E3%81%9F%E3%81%A7%E3%81%99%E3%82%82%E3%81%86%E3%81%B2%E3%81%A8%E3%81%93%E6%95%99%E3%81%88%E3%81%A6%E3%81%92">
 
   <!-- 共通のスタイルとスクリプト（相対パス。更新時は ?v= を更新日に変える） -->
-  <link rel="stylesheet" href="assets/css/style.css?v=20261007">
-  <script src="assets/js/script.js?v=20261007" defer></script>
+  <link rel="stylesheet" href="assets/css/style.css?v=20261008">
+  <script src="assets/js/script.js?v=20261008" defer></script>
 </head>
 <body>
 
@@ -72,10 +73,10 @@
         <ol class="toc__list">
           <li><a href="#teacher"><span class="toc__num">1</span>講師紹介</a></li>
           <li><a href="#goal"><span class="toc__num">2</span>今日、できるようになること</a></li>
-          <li><a href="#how-to"><span class="toc__num">3</span>Geminiとの付き合い方</a></li>
+          <li><a href="#how-to"><span class="toc__num">3</span>Geminiは、物知りで仕事の速い新人アシスタント。</a></li>
           <li><a href="#promises"><span class="toc__num">4</span>安心して使うための3つの約束</a></li>
           <li><a href="#michi"><span class="toc__num">5</span>Michiさんの場合</a></li>
-          <li><a href="#open-gemini"><span class="toc__num">6</span>Geminiを開いて、最初のひとこと</a></li>
+          <li><a href="#open-gemini"><span class="toc__num">6</span>Geminiを開いて、<span class="nowrap">最初のひとこと</span></a></li>
           <li><a href="#gemini-live"><span class="toc__num">7</span>Gemini Liveで話してみる</a></li>
           <li><a href="#hitokoto"><span class="toc__num">8</span>もうひとこと、教えてあげる。</a></li>
           <li><a href="#hints"><span class="toc__num">9</span>もうひとことのヒント</a></li>
@@ -90,12 +91,9 @@
     <!-- ========== 1 講師紹介 ========== -->
     <section id="teacher" class="section teacher">
       <div class="container">
-        <h2 class="section__title"><span class="chapter-num">1</span>講師紹介</h2>
+        <h2 class="section__title"><span class="chapter-num">1<span class="visually-hidden">、</span></span>講師紹介</h2>
 
-        <!-- PLACEHOLDER: teacher-photo｜素材待ち：講師の最新顔写真 → images/common/teacher-wada.jpg（円形表示・直径150〜170px） -->
-        <div class="teacher__photo placeholder placeholder--circle">
-          <span>【素材待ち：講師写真】</span>
-        </div>
+        <img class="teacher__photo" src="images/common/teacher-wada.jpg" alt="講師 和田 倫周の写真" width="480" height="480">
 
         <p class="teacher__name">和田 倫周<span class="teacher__kana">わだ みちひろ</span></p>
         <p class="teacher__affiliation">鹿児島県立開陽高等学校 定時制課程<br>進路支援部主任／国語科教諭・司書教諭</p>
@@ -114,7 +112,7 @@
     <!-- ========== 2 今日、できるようになること ========== -->
     <section id="goal" class="section goal">
       <div class="container">
-        <h2 class="section__title"><span class="chapter-num">2</span>今日、できるようになること</h2>
+        <h2 class="section__title"><span class="chapter-num">2<span class="visually-hidden">、</span></span>今日、できるようになること</h2>
         <ul class="checklist">
           <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-check"/></svg>Geminiに話しかけてみる</li>
           <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-check"/></svg>自分が欲しい答えに近づけてみる</li>
@@ -127,7 +125,7 @@
     <!-- ========== 3 Geminiとの付き合い方 ========== -->
     <section id="how-to" class="section how-to">
       <div class="container">
-        <h2 class="section__title section__title--large"><span class="chapter-num">3</span>Geminiは、物知りで仕事の速い新人アシスタント。</h2>
+        <h2 class="section__title section__title--large"><span class="chapter-num">3<span class="visually-hidden">、</span></span>Geminiは、物知りで仕事の速い新人アシスタント。</h2>
 
         <p>いろいろなことを知っていて、頼めばすぐに応えてくれます。<br>ただ、新人なので、勘違いをしたり、間違えたり、<br class="br-wide">こちらの言いたいことが伝わらなかったりすることもあります。</p>
         <p>だから、こんなふうに付き合います。</p>
@@ -149,7 +147,7 @@
     <!-- ========== 4 安心して使うための3つの約束（警告色・警告アイコンは使わない） ========== -->
     <section id="promises" class="section promises">
       <div class="container">
-        <h2 class="section__title"><span class="chapter-num">4</span>安心して使うための3つの約束</h2>
+        <h2 class="section__title"><span class="chapter-num">4<span class="visually-hidden">、</span></span>安心して使うための3つの約束</h2>
         <p>この3つを知っておくと、安心して試せます。</p>
 
         <div class="promise-list">
@@ -177,7 +175,7 @@
     <!-- ========== 5 Michiさんの場合（吹き出しにしない） ========== -->
     <section id="michi" class="section michi">
       <div class="container">
-        <h2 class="section__title"><span class="chapter-num">5</span><span class="try-label">やってみる</span>Michiさんの場合</h2>
+        <h2 class="section__title"><span class="chapter-num">5<span class="visually-hidden">、</span></span><span class="try-label">やってみる<span class="visually-hidden">｜</span></span>Michiさんの場合</h2>
         <div class="note-box">
           <p>Michiさんは、AIに「Michiさん」と呼んでもらっています。</p>
           <p>一方で、AIには名前をつけていません。<br>ChatGPTはChatGPT、GeminiはGemini。</p>
@@ -190,7 +188,7 @@
     <!-- ========== 6 Geminiを開いて、最初のひとこと ========== -->
     <section id="open-gemini" class="section practice">
       <div class="container">
-        <h2 class="section__title"><span class="chapter-num">6</span><span class="try-label">やってみる</span>Geminiを開いて、最初のひとこと</h2>
+        <h2 class="section__title"><span class="chapter-num">6<span class="visually-hidden">、</span></span><span class="try-label">やってみる<span class="visually-hidden">｜</span></span>Geminiを開いて、最初のひとこと</h2>
 
         <!-- OS切替（JavaScriptが動くときだけ表示。SPEC v0.2 6-1） -->
         <div class="os-switch">
@@ -247,7 +245,7 @@
     <!-- ========== 7 Gemini Liveで話してみる ========== -->
     <section id="gemini-live" class="section practice">
       <div class="container">
-        <h2 class="section__title"><span class="chapter-num">7</span><span class="try-label">やってみる</span>Gemini Liveで話してみる</h2>
+        <h2 class="section__title"><span class="chapter-num">7<span class="visually-hidden">、</span></span><span class="try-label">やってみる<span class="visually-hidden">｜</span></span>Gemini Liveで話してみる</h2>
         <p>Gemini Liveは、Geminiと声で会話できる機能です。<br>人と話すときと同じ、普通の言葉で話しかけて大丈夫です。</p>
 
         <div class="os-switch">
@@ -295,7 +293,7 @@
     <!-- ========== 8 もうひとこと、教えてあげる。（ページの重心） ========== -->
     <section id="hitokoto" class="section hitokoto">
       <div class="container">
-        <h2 class="section__title section__title--large"><span class="chapter-num">8</span><span class="try-label">やってみる</span><span class="mincho">もうひとこと、教えてあげる。</span></h2>
+        <h2 class="section__title section__title--large"><span class="chapter-num">8<span class="visually-hidden">、</span></span><span class="try-label">やってみる<span class="visually-hidden">｜</span></span><span class="mincho">もうひとこと、教えてあげる。</span></h2>
         <p>一度で完璧な質問をつくる必要はありません。<br>Geminiの答えを見ながら、ひとことずつ教えてあげれば十分です。</p>
         <p class="hitokoto__intro">実際の体験から生まれた例です。</p>
 
@@ -346,7 +344,7 @@
     <!-- ========== 9 もうひとことのヒント ========== -->
     <section id="hints" class="section hints">
       <div class="container">
-        <h2 class="section__title"><span class="chapter-num">9</span>もうひとことのヒント</h2>
+        <h2 class="section__title"><span class="chapter-num">9<span class="visually-hidden">、</span></span>もうひとことのヒント</h2>
         <p>Geminiに、もう少し何を教えてあげよう？<br>迷ったら、この5つから選んでみてください。</p>
 
         <ul class="hint-cards">
@@ -382,7 +380,7 @@
     <!-- ========== 10 自分でもやってみる ========== -->
     <section id="try" class="section try">
       <div class="container">
-        <h2 class="section__title"><span class="chapter-num">10</span><span class="try-label">やってみる</span>自分でもやってみる</h2>
+        <h2 class="section__title"><span class="chapter-num">10<span class="visually-hidden">、</span></span><span class="try-label">やってみる<span class="visually-hidden">｜</span></span>自分でもやってみる</h2>
         <p>今、本当に知りたいことを、Geminiに聞いてみてください。<br>料理でも、旅行でも、趣味でも、<br>暮らしの中の小さな疑問でもかまいません。</p>
 
         <ol class="steps steps--simple">
@@ -398,7 +396,7 @@
     <!-- ========== 11 場所に合わせた使い方（カードにしない） ========== -->
     <section id="places" class="section places">
       <div class="container">
-        <h2 class="section__title"><span class="chapter-num">11</span>場所に合わせた使い方</h2>
+        <h2 class="section__title"><span class="chapter-num">11<span class="visually-hidden">、</span></span>場所に合わせた使い方</h2>
         <p>Geminiは、場所に合わせて話し方を変えると使いやすくなります。</p>
 
         <ul class="place-list">
@@ -432,7 +430,7 @@
     <!-- ========== 12 次に会うまでに、1回だけ。（全幅の帯） ========== -->
     <section id="next" class="section next">
       <div class="container">
-        <h2 class="section__title"><span class="chapter-num">12</span>次に会うまでに、1回だけ。</h2>
+        <h2 class="section__title"><span class="chapter-num">12<span class="visually-hidden">、</span></span>次に会うまでに、1回だけ。</h2>
         <p>日常生活の中で、<br>「これ、Geminiに聞いてみようかな」<br>と思ったことを、ひとつ聞いてみてください。</p>
         <p>うまくいかなくても大丈夫です。<br>その「うまくいかなかった」が、次回のIMA+の教材になります。</p>
       </div>
@@ -441,7 +439,7 @@
     <!-- ========== 13 困ったときは ========== -->
     <section id="help" class="section help">
       <div class="container">
-        <h2 class="section__title"><span class="chapter-num">13</span>困ったときは</h2>
+        <h2 class="section__title"><span class="chapter-num">13<span class="visually-hidden">、</span></span>困ったときは</h2>
         <p>このページは、講座のあとも見ることができます。<br>操作を忘れたら、いつでも戻ってきてください。</p>
 
         <ol class="steps steps--simple">
@@ -451,11 +449,8 @@
 
         <p>困っている画面のスクリーンショットを送ってもらえると、<br class="br-wide">状況が分かりやすくなります。</p>
 
-        <!-- PLACEHOLDER: line-url｜素材待ち：LINE公式の友だち追加URL。確定後に <a class="button-primary" href="（URL）">LINEで質問する</a> へ差し替える（同じタブで開く） -->
-        <div class="placeholder placeholder--button">
-          <span class="button-primary button-primary--disabled" aria-disabled="true">LINEで質問する</span>
-          <span class="placeholder__note">【素材待ち：LINE公式URL】</span>
-        </div>
+        <!-- LINE公式（LINEアプリへの移動を妨げないよう、同じタブで開く） -->
+        <p class="help__cta"><a class="button-primary" href="https://lin.ee/tDPCOhaZ">LINEで質問する</a></p>
       </div>
     </section>
 
