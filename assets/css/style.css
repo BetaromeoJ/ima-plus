@@ -1,0 +1,911 @@
+/* ==========================================================================
+   IMA+ 研修サイト 共通スタイル
+   基準：SPEC v0.2 第7節／VISUAL_DIRECTION v1.0（確定版）
+   区切り順：Variables → Base → Typography → Layout → Header → TOC
+            → Sections → Components → Responsive → Motion
+   第2回以降も同じファイルを使う。回ごとのスタイルはその回のクラス名で追加する。
+   ========================================================================== */
+
+
+/* ==========================================================================
+   Variables（VISUAL v1.0 3-2 カラートークン）
+   ========================================================================== */
+:root {
+  /* 色 */
+  --color-bg: #FAF7F2;          /* 背景（生成り） */
+  --color-surface: #F1ECE3;     /* 面：例文の枠・約束カード・結び・帯 */
+  --color-text: #2B2A28;        /* 本文（墨色） */
+  --color-text-sub: #55524D;    /* 補足文（これより薄くしない） */
+  --color-primary: #2F6B5A;     /* 主色（深緑）：見出し・ボタン・細線 */
+  --color-primary-pale: #E7F0EC;/* 「やってみる」ラベルの背景だけ */
+  --color-marker: #F5DC8A;      /* 「もうひとこと」のマーカーだけ */
+  --color-rule: #D9D2C5;        /* 罫線 */
+  --color-white: #FFFFFF;
+
+  /* 書体 */
+  --font-gothic: "BIZ UDPGothic", "Hiragino Sans", "Noto Sans JP", "Meiryo", sans-serif;
+  --font-mincho: "BIZ UDPMincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
+
+  /* 寸法 */
+  --content-width: 40rem;       /* 640px */
+  --gutter: 1.25rem;            /* 20px */
+  --section-gap: 4.5rem;        /* 72px */
+  --header-height: 3.5rem;      /* 56px */
+  --tap-min: 2.75rem;           /* 44px */
+  --radius-small: 0.375rem;
+}
+
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-gothic);
+  font-size: 1.125rem;          /* 18px */
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+  overflow-wrap: break-word;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+/* フォーカス表示は消さない（VISUAL v1.0 7-7） */
+:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+/* アイコンのスプライト本体は表示しない */
+.icon-sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+/* 画面には出さず、読み上げ環境にだけ伝える */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* スキップリンク：キーボード操作時だけ表示 */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--gutter);
+  z-index: 100;
+  padding: 0.5rem 1rem;
+  background-color: var(--color-bg);
+  border: 2px solid var(--color-primary);
+}
+
+.skip-link:focus {
+  top: 0.5rem;
+}
+
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+p {
+  margin: 0 0 1.25em;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+/* 明朝は確定3か所だけ（VISUAL v1.0 4-1） */
+.mincho {
+  font-family: var(--font-mincho);
+  font-weight: 400;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* 文の途中の改行は、幅の広い画面でだけ効かせる（スマホでは自然に折り返す） */
+.br-wide {
+  display: none;
+}
+
+/* 語の途中で折り返さない */
+.nowrap {
+  white-space: nowrap;
+}
+
+
+/* ==========================================================================
+   Layout
+   ========================================================================== */
+.container {
+  width: 100%;
+  max-width: calc(var(--content-width) + var(--gutter) * 2);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.section {
+  padding: var(--section-gap) 0 0;
+  /* 固定ヘッダーで見出しが隠れないように */
+  scroll-margin-top: var(--header-height);
+}
+
+.section:last-child {
+  padding-bottom: var(--section-gap);
+}
+
+/* 章見出し：章番号（深緑）＋見出し（墨色）＋短い細線 */
+.section__title {
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.875rem;
+  font-size: 1.5rem;            /* 24px */
+  position: relative;
+}
+
+.section__title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 2.5rem;
+  border-bottom: 2px solid var(--color-primary);
+}
+
+.section__title--large {
+  font-size: 1.625rem;          /* 26px */
+}
+
+.chapter-num {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--color-primary);
+  font-size: 1.75rem;           /* 28px */
+  line-height: 1.2;
+}
+
+/* 「やってみる」ラベル（VISUAL v1.0 6-3） */
+.try-label {
+  display: inline-block;
+  margin: 0 0 0.5rem;
+  padding: 0.125rem 0.625rem;
+  background-color: var(--color-primary-pale);
+  color: var(--color-primary);
+  font-size: 1rem;
+  line-height: 1.6;
+  border-radius: var(--radius-small);
+  vertical-align: middle;
+  margin-right: 0.5rem;
+}
+
+
+/* ==========================================================================
+   Header（固定・生成り背景・下端に罫線）
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: calc(var(--content-width) + var(--gutter) * 2);
+  height: var(--header-height);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.site-header__logo {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-min);
+  color: var(--color-text);
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+}
+
+.site-header__toc {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-min);
+  padding: 0 0.25rem;
+  font-weight: 700;
+}
+
+
+/* ==========================================================================
+   TOC（HERO直後の常設ブロック・JavaScriptなし）
+   ========================================================================== */
+.toc {
+  padding-top: 2.5rem;
+  scroll-margin-top: var(--header-height);
+}
+
+.toc__title {
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+}
+
+.toc__list {
+  border-top: 1px solid var(--color-rule);
+}
+
+.toc__list li {
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.toc__list a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: var(--tap-min);
+  padding: 0.625rem 0.25rem;
+  color: var(--color-text);
+  text-decoration: none;
+  line-height: 1.5;
+}
+
+.toc__num {
+  flex: 0 0 2rem;
+  color: var(--color-primary);
+  font-weight: 700;
+  text-align: right;
+}
+
+
+/* ==========================================================================
+   Sections
+   ========================================================================== */
+
+/* ---------- HERO：写真なし・左揃え・広い余白。100vhにしない ---------- */
+.hero {
+  padding: 3.5rem 0 0;
+  scroll-margin-top: var(--header-height);
+}
+
+.hero__brand {
+  margin-bottom: 1.5rem;
+  color: var(--color-primary);
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.hero__catch {
+  margin-bottom: 1.5rem;
+  font-size: 1.875rem;          /* 30px */
+  line-height: 1.4;
+}
+
+.hero__lead {
+  margin-bottom: 2rem;
+}
+
+.hero__title {
+  display: inline-block;
+  margin-bottom: 2.5rem;
+  padding: 0.25rem 0;
+  color: var(--color-primary);
+  font-size: 1.125rem;
+  border-bottom: 1px solid var(--color-primary);
+}
+
+.hero__note {
+  margin: 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-primary);
+  font-weight: 700;
+}
+
+/* ---------- 講師紹介 ---------- */
+.teacher {
+  text-align: center;
+}
+
+.teacher .section__title {
+  text-align: left;
+}
+
+.teacher__photo {
+  width: 10rem;
+  height: 10rem;
+  margin: 0 auto 1.5rem;
+}
+
+.teacher__name {
+  margin-bottom: 0.75rem;
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.teacher__kana {
+  display: block;
+  color: var(--color-text-sub);
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.teacher__affiliation {
+  margin-bottom: 1.5rem;
+}
+
+/* 資格・活動は控えめに */
+.teacher__credentials {
+  margin-bottom: 1.75rem;
+  color: var(--color-text-sub);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.teacher__message {
+  margin: 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-rule);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  text-align: left;
+}
+
+/* ---------- 今日、できるようになること ---------- */
+.checklist {
+  margin-bottom: 1.75rem;
+}
+
+.checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+}
+
+.checklist .icon {
+  flex: 0 0 1.5rem;
+  margin-top: 0.25rem;
+}
+
+.goal__closing {
+  margin: 0;
+  font-size: 1.1875rem;
+  font-weight: 700;
+}
+
+/* ---------- Geminiとの付き合い方 ---------- */
+.flow {
+  margin: 1.75rem 0 2.25rem;
+  padding-left: 0.75rem;
+  border-left: 2px solid var(--color-primary);
+}
+
+.flow li {
+  padding: 0.5rem 0 0.5rem 1rem;
+}
+
+.flow__name {
+  display: block;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.flow__desc {
+  display: block;
+}
+
+.key-message {
+  padding: 1.75rem 1.25rem 0.5rem;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-small);
+}
+
+.key-message__main {
+  margin-bottom: 1rem;
+  font-size: 1.625rem;          /* 26px */
+  line-height: 1.5;
+}
+
+/* ---------- 3つの約束（警告色を使わない） ---------- */
+.promise-list {
+  display: grid;
+  gap: 1rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.promise-card {
+  padding: 1.5rem 1.25rem 0.5rem;
+  background-color: var(--color-surface);
+  border-top: 2px solid var(--color-primary);
+  border-radius: var(--radius-small);
+}
+
+.promise-card__title {
+  margin-bottom: 0.875rem;
+  color: var(--color-primary);
+  font-size: 1.25rem;
+}
+
+.promises__closing {
+  margin: 0;
+}
+
+/* ---------- Michiさんの場合（ノートの書き込み風・吹き出しにしない） ---------- */
+.note-box {
+  margin-bottom: 1.75rem;
+  padding: 1.5rem 1.25rem 0.5rem;
+  border: 1px solid var(--color-rule);
+  border-left: 3px solid var(--color-primary);
+}
+
+.michi__bridge {
+  margin: 0;
+  font-weight: 700;
+}
+
+/* ---------- もうひとこと、教えてあげる。（ページの重心・余白を最も広く） ---------- */
+.hitokoto {
+  padding-top: 5.5rem;
+}
+
+.hitokoto .section__title .mincho {
+  font-size: 1.75rem;           /* 28px */
+}
+
+.hitokoto__intro {
+  color: var(--color-text-sub);
+  font-size: 1rem;
+}
+
+.hitokoto-flow {
+  margin: 1.5rem 0 2.5rem;
+}
+
+.hitokoto-flow__stage {
+  position: relative;
+  padding-bottom: 2.5rem;
+}
+
+/* 段と段の間をつなぐ深緑の細線 */
+.hitokoto-flow__stage + .hitokoto-flow__stage {
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-primary);
+}
+
+.hitokoto-flow__label {
+  margin-bottom: 0.75rem;
+  color: var(--color-primary);
+  font-size: 1.125rem;
+}
+
+.hitokoto__closing {
+  margin: 0;
+  font-weight: 700;
+}
+
+/* ---------- もうひとことのヒント ---------- */
+.hint-cards {
+  display: grid;
+  gap: 0.875rem;
+  margin-top: 1.5rem;
+}
+
+.hint-card {
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  column-gap: 0.875rem;
+  align-items: start;
+  padding: 1.125rem 1.125rem 0.25rem;
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius-small);
+}
+
+.hint-card__icon {
+  grid-row: span 2;
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.hint-card__title {
+  margin-bottom: 0.25rem;
+  color: var(--color-primary);
+  font-size: 1.125rem;
+}
+
+.hint-card__example {
+  font-weight: 700;
+}
+
+/* ---------- 場所に合わせた使い方（カードにしない・行で区切る） ---------- */
+.place-list {
+  margin: 1.5rem 0 1.75rem;
+  border-top: 1px solid var(--color-rule);
+}
+
+.place {
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  column-gap: 0.875rem;
+  padding: 1.25rem 0 0.25rem;
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.place__icon {
+  width: 1.75rem;
+  height: 1.75rem;
+  margin-top: 0.125rem;
+}
+
+.place__title {
+  margin-bottom: 0.375rem;
+  font-size: 1.125rem;
+}
+
+/* ---------- 次に会うまでに（全幅の帯） ---------- */
+.next {
+  margin-top: var(--section-gap);
+  padding: 3.5rem 0 2.25rem;
+  background-color: var(--color-surface);
+}
+
+/* ---------- 困ったときは ---------- */
+.help .steps {
+  margin-bottom: 1.5rem;
+}
+
+
+/* ==========================================================================
+   Components
+   ========================================================================== */
+
+/* ---------- 細線アイコン（単色・同じ線幅） ---------- */
+.icon {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--color-primary);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vertical-align: middle;
+}
+
+/* ---------- 番号付きステップ ---------- */
+.steps {
+  margin: 1.5rem 0 2rem;
+  counter-reset: step;
+}
+
+.steps__item {
+  position: relative;
+  padding: 0 0 1.5rem 3rem;
+  counter-increment: step;
+}
+
+.steps__item::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid var(--color-primary);
+  border-radius: 50%;
+  color: var(--color-primary);
+  font-weight: 700;
+  line-height: 1.75rem;
+  text-align: center;
+}
+
+.steps__title {
+  margin-bottom: 0.75rem;
+  font-size: 1.1875rem;
+  line-height: 1.6;
+}
+
+.steps__text {
+  margin: 0;
+  padding-top: 0.125rem;
+}
+
+.steps--simple .steps__item {
+  padding-bottom: 1rem;
+}
+
+/* ---------- 例文の枠（参加者の言葉）：吹き出しにしない ---------- */
+.example {
+  margin: 0 0 1rem;
+  padding: 1rem 1.125rem;
+  background-color: var(--color-surface);
+  border-left: 4px solid var(--color-primary);
+  font-size: 1.25rem;           /* 20px */
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+.example p {
+  margin: 0;
+}
+
+.example--large {
+  font-size: 1.3125rem;         /* 21px */
+}
+
+.examples__label {
+  margin-bottom: 0.75rem;
+  color: var(--color-text-sub);
+  font-size: 1rem;
+}
+
+/* 「もうひとこと」で足した言葉だけに引くマーカー */
+.marker {
+  background: linear-gradient(transparent 55%, var(--color-marker) 55%);
+  color: inherit;
+  padding: 0 0.1em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* ---------- Geminiの回答（補助的に・例文より控えめ） ---------- */
+.answer {
+  margin: 0.5rem 0 0 1rem;
+  max-width: 17.5rem;           /* 例文より小さく表示する */
+}
+
+.answer__label {
+  margin-bottom: 0.5rem;
+  color: var(--color-text-sub);
+  font-size: 1rem;
+}
+
+/* ---------- OS切替（JavaScriptが動くときだけ表示） ---------- */
+.os-switch {
+  display: none;
+  margin: 0 0 1.75rem;
+}
+
+.js .os-switch {
+  display: block;
+}
+
+.os-switch__label {
+  margin-bottom: 0.625rem;
+  font-weight: 700;
+}
+
+.os-switch__buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.os-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  min-height: 3rem;             /* 48px以上 */
+  padding: 0.5rem 0.75rem;
+  background-color: var(--color-bg);
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-small);
+  font-family: inherit;
+  font-size: 1.125rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* 選択中：深緑の塗り＋チェック（色だけで伝えない） */
+.os-button__check {
+  display: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--color-white);
+}
+
+.os-button[aria-pressed="true"] {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.os-button[aria-pressed="true"] .os-button__check {
+  display: inline-block;
+}
+
+.os-switch__note {
+  margin: 0.75rem 0 0;
+  color: var(--color-text-sub);
+  font-size: 1rem;
+}
+
+/* どちらかを選んだら、選んでいないOSの手順と注記を隠す */
+html[data-os] .os-switch__note {
+  display: none;
+}
+
+html[data-os="iphone"] .os-block[data-os="android"],
+html[data-os="android"] .os-block[data-os="iphone"] {
+  display: none;
+}
+
+.os-block + .os-block {
+  margin-top: 1.25rem;
+}
+
+.os-block__title {
+  margin-bottom: 0.5rem;
+  color: var(--color-primary);
+  font-size: 1rem;
+}
+
+/* ---------- 主要ボタン（深緑の塗りはここと選択中のOSボタンだけ） ---------- */
+.button-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 3.5rem;           /* 56px */
+  padding: 0.75rem 1rem;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border-radius: var(--radius-small);
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* ---------- Placeholder（第1段階のみ。公開前にすべて差し替える） ---------- */
+.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border: 2px dashed var(--color-text-sub);
+  background-color: var(--color-bg);
+  color: var(--color-text-sub);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.placeholder--circle {
+  border-radius: 50%;
+}
+
+/* スクリーンショットの寸法に近い縦長の枠 */
+.placeholder--screen {
+  min-height: 18rem;
+  border-radius: var(--radius-small);
+}
+
+.placeholder--answer {
+  min-height: 14rem;
+  border-radius: var(--radius-small);
+}
+
+.placeholder--button {
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.button-primary--disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.placeholder__note {
+  display: block;
+}
+
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.site-footer {
+  padding: 2rem 0 2.5rem;
+  border-top: 1px solid var(--color-rule);
+  color: var(--color-text-sub);
+  font-size: 1rem;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.site-footer__name {
+  font-weight: 700;
+}
+
+
+/* ==========================================================================
+   Responsive（幅640px以上で調整）
+   ========================================================================== */
+@media (min-width: 40em) {
+  :root {
+    --section-gap: 5rem;        /* 80px */
+  }
+
+  .hero {
+    padding-top: 5rem;
+  }
+
+  .hero__catch {
+    font-size: 2.125rem;        /* 34px */
+  }
+
+  .section__title {
+    font-size: 1.625rem;
+  }
+
+  .br-wide {
+    display: inline;
+  }
+
+  .hint-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .answer {
+    max-width: 20rem;
+  }
+}
+
+
+/* ==========================================================================
+   Motion（アニメーションは使わない。滑らかなスクロールのみ）
+   ========================================================================== */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
