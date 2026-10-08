@@ -42,16 +42,21 @@ CHANGELOG.md            更新履歴
 - 公開URL（ルートURL＝入口＝第1回）：https://betaromeoj.github.io/ima-plus/
 - 参加者に最初に案内するこのURLは、今後も変えない。
 
-## 現在の状態（STEP 10 BUILD 第1段階＋素材の一部差し替え済み）
+## 現在の状態（COPY v0.4／SPEC v0.3 反映済み・GitHubへは未push）
 
-差し替え済み：講師写真（`images/common/teacher-wada.jpg`）、LINE公式URL、公開URL（og:url）。
-
-次の素材は Placeholder です。Placeholderが残っている間は公開しません。
+文言の正本は COPY v0.4、構造と技術の正本は SPEC v0.3（Driveの 01_研修サイト）です。
+サイトは公開済みですが、次のPlaceholderが残っている間は、参加者にURLを案内しません。
 `PLACEHOLDER:` で検索すると、すべての差し替え箇所が見つかります。
 
-- 操作スクリーンショット（iPhone／Android）と、Geminiを開く・Gemini Liveを始める手順の文
+- Geminiを開く手順の文と実画面（iPhone／Android。一度に一操作）
+- 文字を入力する場所・マイクを押す場所の実画面
+- 呼び方を伝えたあとの返事の実画面
+- Gemini Liveを始める手順の文と実画面（iPhone／Android。一度に一操作）
 - 「もうひとこと」の実際の回答画面（3枚）
 - OGP画像（任意）
+
+操作画面は「一度に一操作」（SPEC v0.3 6-8）で入れます。
+差し替え後の形は、HTMLのPLACEHOLDERコメントに書いてあります。
 
 ## 第2段階（実素材の差し替え）で必ず確認すること
 

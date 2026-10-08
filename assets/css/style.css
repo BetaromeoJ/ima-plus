@@ -665,6 +665,98 @@ ol {
   padding-bottom: 1rem;
 }
 
+/* ---------- 章内の小見出し（SPEC v0.3 6-10） ---------- */
+.subsection-title {
+  margin: 2.25rem 0 0.875rem;
+  color: var(--color-primary);
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+/* ---------- 参考例の一覧（SPEC v0.3 6-9）：「今言ってみる」大きな枠と区別する ---------- */
+.example-list {
+  margin: 0 0 1.5rem;
+}
+
+.example-list li {
+  margin-bottom: 0.625rem;
+  padding: 0.125rem 0 0.125rem 0.875rem;
+  border-left: 2px solid var(--color-primary);
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+/* ---------- 一度に一操作の小さな手順（SPEC v0.3 6-8） ---------- */
+.substeps {
+  margin: 0.5rem 0 0;
+  counter-reset: substep;
+}
+
+.substeps__item {
+  position: relative;
+  padding: 0 0 2.75rem;
+  counter-increment: substep;
+}
+
+.substeps__item:last-child {
+  padding-bottom: 0;
+}
+
+/* 手順と手順の間の下向き矢印（CSSの線で描く。読み上げられる文字は使わない） */
+.substeps__item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 1rem;
+  width: 0.875rem;
+  height: 0.875rem;
+  margin-left: -0.4375rem;
+  border-right: 2px solid var(--color-primary);
+  border-bottom: 2px solid var(--color-primary);
+  transform: rotate(45deg);
+}
+
+.substeps__text {
+  position: relative;
+  margin: 0 0 0.75rem;
+  padding-left: 2.25rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+/* 小さな番号（本文の手順より小さい丸） */
+.substeps__text::before {
+  content: counter(substep);
+  position: absolute;
+  left: 0;
+  top: 0.125rem;
+  width: 1.625rem;
+  height: 1.625rem;
+  border: 1.5px solid var(--color-primary);
+  border-radius: 50%;
+  color: var(--color-primary);
+  font-size: 0.9375rem;
+  line-height: 1.5rem;
+  text-align: center;
+}
+
+/* ---------- 実画面（本文の幅いっぱい） ---------- */
+.screen {
+  margin: 0;
+}
+
+.screen img {
+  width: 100%;
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius-small);
+}
+
+.screen figcaption {
+  margin-top: 0.5rem;
+  color: var(--color-text-sub);
+  font-size: 1rem;
+}
+
 /* ---------- 例文の枠（参加者の言葉）：吹き出しにしない ---------- */
 .example {
   margin: 0 0 1rem;
@@ -824,6 +916,16 @@ html[data-os="android"] .os-block[data-os="iphone"] {
 }
 
 /* スクリーンショットの寸法に近い縦長の枠 */
+/* 手順の中で、画面と次の要素（例文の枠など）がくっつかないようにする */
+.steps__item > .placeholder,
+.steps__item > .screen {
+  margin-bottom: 1rem;
+}
+
+.placeholder-text {
+  color: var(--color-text-sub);
+}
+
 .placeholder--screen {
   min-height: 18rem;
   border-radius: var(--radius-small);
