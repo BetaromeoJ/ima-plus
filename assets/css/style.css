@@ -193,6 +193,17 @@ ol {
   border-bottom: 2px solid var(--color-primary);
 }
 
+/* 見出しは意味のまとまり（.phrase）の途中で改行しない */
+.phrase {
+  display: inline-block;
+}
+
+/* 「やってみる」ラベルは見出しの文の上の行に置く */
+.section__title .try-label {
+  display: table;
+  margin: 0 0 0.5rem;
+}
+
 .section__title--large {
   font-size: 1.625rem;          /* 26px */
 }
@@ -694,7 +705,7 @@ ol {
 
 .substeps__item {
   position: relative;
-  padding: 0 0 2.75rem;
+  padding: 0 0 2.25rem;
   counter-increment: substep;
 }
 
@@ -707,7 +718,7 @@ ol {
   content: "";
   position: absolute;
   left: 50%;
-  bottom: 1rem;
+  bottom: 0.75rem;
   width: 0.875rem;
   height: 0.875rem;
   margin-left: -0.4375rem;
@@ -749,6 +760,23 @@ ol {
   width: 100%;
   border: 1px solid var(--color-rule);
   border-radius: var(--radius-small);
+}
+
+/* スマートフォンでは、手順の中の画像を字下げせず本文の幅いっぱいに表示する（拡大せずに読めるように） */
+.steps .screen:not(.screen--icon):not(.screen--full) {
+  width: calc(100% + 3rem);
+  margin-left: -3rem;
+}
+
+/* アイコンだけの画像は小さく */
+.screen--icon {
+  max-width: 8rem;
+}
+
+/* 画面全体の画像は幅240px前後で中央に（縦に長くなりすぎないように） */
+.screen--full {
+  max-width: 15rem;
+  margin: 0 auto;
 }
 
 .screen figcaption {
@@ -793,8 +821,7 @@ ol {
 
 /* ---------- Geminiの回答（補助的に・例文より控えめ） ---------- */
 .answer {
-  margin: 0.5rem 0 0 1rem;
-  max-width: 17.5rem;           /* 例文より小さく表示する */
+  margin: 0.5rem 0 0;
 }
 
 .answer__label {
@@ -864,9 +891,10 @@ ol {
   font-size: 1rem;
 }
 
-/* どちらかを選んだら、選んでいないOSの手順と注記を隠す */
+/* どちらかを選んだら、選んでいないOSの手順を隠す（注記は「〇〇の手順を表示しています。」に変わる） */
 html[data-os] .os-switch__note {
-  display: none;
+  color: var(--color-primary);
+  font-weight: 700;
 }
 
 html[data-os="iphone"] .os-block[data-os="android"],
@@ -884,6 +912,13 @@ html[data-os="android"] .os-block[data-os="iphone"] {
   font-size: 1rem;
 }
 
+/* ---------- Androidの案内（案A）：注意書きに見せない静かな囲み ---------- */
+.android-note {
+  padding: 1rem 1.125rem 0.25rem;
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius-small);
+}
+
 /* ---------- 主要ボタン（深緑の塗りはここと選択中のOSボタンだけ） ---------- */
 .button-primary {
   display: flex;
@@ -899,44 +934,6 @@ html[data-os="android"] .os-block[data-os="iphone"] {
   font-weight: 700;
   text-decoration: none;
 }
-
-/* ---------- Placeholder（素材待ち。公開前にすべて差し替え、このブロックも削除する） ---------- */
-.placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-  border: 2px dashed var(--color-text-sub);
-  background-color: var(--color-bg);
-  color: var(--color-text-sub);
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1.6;
-  text-align: center;
-}
-
-/* スクリーンショットの寸法に近い縦長の枠 */
-/* 手順の中で、画面と次の要素（例文の枠など）がくっつかないようにする */
-.steps__item > .placeholder,
-.steps__item > .screen {
-  margin-bottom: 1rem;
-}
-
-.placeholder-text {
-  color: var(--color-text-sub);
-}
-
-.placeholder--screen {
-  min-height: 18rem;
-  border-radius: var(--radius-small);
-}
-
-.placeholder--answer {
-  min-height: 14rem;
-  border-radius: var(--radius-small);
-}
-
-
 
 /* ==========================================================================
    Footer
@@ -981,13 +978,21 @@ html[data-os="android"] .os-block[data-os="iphone"] {
     display: inline;
   }
 
+  /* 幅の広い画面では、手順の字下げに合わせる */
+  .steps .screen:not(.screen--icon):not(.screen--full) {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  /* タブレット・PCで画像が大きくなりすぎないようにする */
+  .screen:not(.screen--icon):not(.screen--full) {
+    max-width: 26rem;
+  }
+
   .hint-cards {
     grid-template-columns: 1fr 1fr;
   }
 
-  .answer {
-    max-width: 20rem;
-  }
 }
 
 

@@ -30,6 +30,11 @@
       button.setAttribute('aria-pressed', pressed ? 'true' : 'false');
     });
 
+    // 切替ボタンの下に、今どちらの手順を表示しているかを出す
+    Array.prototype.forEach.call(document.querySelectorAll('.os-switch__note'), function (note) {
+      note.textContent = labels[os] + 'の手順を表示しています。';
+    });
+
     // 読み上げ環境へ短く知らせる
     if (status) {
       status.textContent = labels[os] + 'の手順を表示しています';
