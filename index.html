@@ -23,8 +23,8 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPMincho&amp;display=swap&amp;text=%E3%80%8C%E4%BB%8A%E3%81%95%E3%82%89%E3%80%8D%E3%82%92%E3%80%81%E3%81%8B%E3%81%B8%E3%80%82%E6%9C%80%E5%BE%8C%E3%81%AB%E6%B1%BA%E3%82%81%E3%82%8B%E3%81%AE%E3%81%AF%E3%81%82%E3%81%AA%E3%81%9F%E3%81%A7%E3%81%99%E3%82%82%E3%81%86%E3%81%B2%E3%81%A8%E3%81%93%E6%95%99%E3%81%88%E3%81%A6%E3%81%92">
 
   <!-- 共通のスタイルとスクリプト（相対パス。更新時は ?v= を更新日に変える） -->
-  <link rel="stylesheet" href="assets/css/style.css?v=20261013">
-  <script src="assets/js/script.js?v=20261013" defer></script>
+  <link rel="stylesheet" href="assets/css/style.css?v=20261016">
+  <script src="assets/js/script.js?v=20261016" defer></script>
 </head>
 <body>
 
@@ -200,10 +200,14 @@
     </section>
 
     <!-- ========== 6 Geminiを開いて、最初のひとこと ========== -->
-    <!-- 画面はiPhone実機（2026-10-13撮影・デモ用アカウント）。一度に一操作（SPEC v0.3 6-8） -->
+    <!-- 画面はiPhone実機（2026-10-13撮影・デモ用アカウント）。OSごとに手順を1本の番号でまとめる（2026-10-13レビュー） -->
     <section id="open-gemini" class="section practice">
       <div class="container">
         <h2 class="section__title"><span class="chapter-num">6<span class="visually-hidden">、</span></span><span class="try-label">やってみる<span class="visually-hidden">｜</span></span><span class="phrase">Geminiを開いて、</span><span class="phrase">最初のひとこと</span></h2>
+
+        <p>Geminiに、次のように伝えてみます。</p>
+        <blockquote class="example"><p>「私のことは○○さんと呼んでください」</p></blockquote>
+        <p>○○には、呼んでほしい名前を入れます。<br>話しても、文字で入力しても、どちらでもかまいません。</p>
 
         <!-- OS切替（JavaScriptが動くときだけ表示） -->
         <div class="os-switch">
@@ -215,73 +219,54 @@
           <p class="os-switch__note">今は、両方の手順を表示しています。</p>
         </div>
 
-        <ol class="steps">
-          <li class="steps__item">
-            <h3 class="steps__title">Geminiを開く</h3>
-            <div class="os-block" data-os="iphone">
-              <h4 class="os-block__title">iPhoneの場合</h4>
-              <ol class="substeps">
-                <li class="substeps__item">
-                  <p class="substeps__text">ホーム画面で、Geminiのアイコンを押します。</p>
-                  <figure class="screen  screen--icon">
-                    <img src="images/01/open-gemini-iphone-01.png" alt="ホーム画面のGeminiのアイコン。丸で囲んだところを押します" width="360" height="394" loading="lazy">
-                  </figure>
-                </li>
-              </ol>
-            </div>
-            <div class="os-block" data-os="android">
-              <h4 class="os-block__title">Androidの場合</h4>
-              <!-- 案A（2026-10-13決定）：Androidの画面は未確認のため、推測で手順を書かない -->
-              <div class="android-note">
-                <p>Androidの画面は、機種によって少しずつ違います。<br>講座中は、講師が一緒に画面を確認します。</p>
-                <p>講座のあとで分からなくなったときは、困っている画面のスクリーンショットを<a href="#help">LINEで送ってください。</a></p>
-                <p>参考として、上の［iPhone］を押すと、iPhoneの画面を見ることができます。ボタンの位置や形は、少し違うことがあります。</p>
-              </div>
-            </div>
-          </li>
-          <li class="steps__item">
-            <h3 class="steps__title">次のように伝える</h3>
-            <p>話しても、文字で入力しても、どちらでもかまいません。</p>
-            <div class="os-block" data-os="iphone">
-              <h4 class="os-block__title">iPhoneの場合</h4>
-              <ol class="substeps">
-                <li class="substeps__item">
-                  <p class="substeps__text">画面の下にある欄を使います。文字で入力するときは「Gemini に相談」と書かれたところを、声で話すときはマイクのボタンを押します。</p>
-                  <figure class="screen">
-                    <img src="images/01/input-iphone.png" alt="画面の下の欄。「Gemini に相談」と書かれたところ（文字）と、マイクのボタン（声）に丸が付いています" width="900" height="269" loading="lazy">
-                  </figure>
-                </li>
-              </ol>
-            </div>
-            <blockquote class="example"><p>「私のことは○○さんと呼んでください」</p></blockquote>
-            <p>○○には、呼んでほしい名前を入れます。</p>
-            <div class="os-block" data-os="iphone">
-              <h4 class="os-block__title">iPhoneの場合</h4>
-              <!-- 要確認（Michiさん）：声で話したあとも↑で送る流れでよいか -->
-              <ol class="substeps">
-                <li class="substeps__item">
-                  <p class="substeps__text">文字で入力したら、右側の↑のボタンを押して送ります。</p>
-                  <figure class="screen">
-                    <img src="images/01/send-iphone.png" alt="入力した文の右下にある↑のボタンに丸が付いています" width="900" height="284" loading="lazy">
-                  </figure>
-                </li>
-                <li class="substeps__item">
-                  <p class="substeps__text">声で話したときは、話している間こんな表示になります。話し終えたら、↑のボタンを押して送ります。</p>
-                  <figure class="screen">
-                    <img src="images/01/send-voice-iphone.png" alt="声で話している間の画面。右端の↑のボタンに丸が付いています" width="900" height="269" loading="lazy">
-                  </figure>
-                </li>
-              </ol>
-            </div>
-          </li>
-          <li class="steps__item">
-            <h3 class="steps__title">Geminiの返事を見る</h3>
-            <figure class="screen">
-                    <img src="images/01/first-words-reply.png" alt="「私のことはMichiさんと呼んでください」に対するGeminiの返事の画面" width="900" height="709" loading="lazy">
-                    <figcaption>例：Michiさんの場合（iPhoneの画面）</figcaption>
-                  </figure>
-          </li>
-        </ol>
+        <div class="os-block" data-os="iphone">
+          <h3 class="os-block__title">iPhoneの場合</h3>
+          <ol class="steps">
+            <li class="steps__item">
+              <h4 class="steps__title">Geminiを開く</h4>
+              <p>ホーム画面で、Geminiのアイコンを押します。</p>
+              <figure class="screen  screen--icon">
+                <img src="images/01/open-gemini-iphone-01.png" alt="ホーム画面のGeminiのアイコン。丸で囲んだところを押します" width="360" height="394" loading="lazy">
+              </figure>
+            </li>
+            <li class="steps__item">
+              <h4 class="steps__title">文字か声かを選ぶ</h4>
+              <p>画面の下にある欄を使います。文字で入力するときは「Gemini に相談」と書かれたところを、声で話すときはマイクのボタンを押します。</p>
+              <figure class="screen">
+                <img src="images/01/input-iphone.png" alt="画面の下の欄。「Gemini に相談」と書かれたところ（文字）と、マイクのボタン（声）に丸が付いています" width="900" height="269" loading="lazy">
+              </figure>
+              <p>声を使うときに、マイクの使用を許可するか尋ねる画面が出たら、許可して大丈夫です。</p>
+            </li>
+            <li class="steps__item">
+              <h4 class="steps__title">↑のボタンで送る</h4>
+              <p>文字で入力したら、右側の↑のボタンを押して送ります。</p>
+              <figure class="screen">
+                <img src="images/01/send-iphone.png" alt="入力した文の右下にある↑のボタンに丸が付いています" width="900" height="284" loading="lazy">
+              </figure>
+              <p>声で話しているときは、こんな表示になります。話し終えたら、同じように↑のボタンを押して送ります。</p>
+              <figure class="screen">
+                <img src="images/01/send-voice-iphone.png" alt="声で話している間の表示。右端の↑のボタンに丸が付いています" width="900" height="269" loading="lazy">
+              </figure>
+            </li>
+            <li class="steps__item">
+              <h4 class="steps__title">Geminiの返事を見る</h4>
+              <figure class="screen">
+                <img src="images/01/first-words-reply.png" alt="「私のことはMichiさんと呼んでください」に対するGeminiの返事の画面" width="900" height="709" loading="lazy">
+                <figcaption>例：Michiさんの場合</figcaption>
+              </figure>
+            </li>
+          </ol>
+        </div>
+        <div class="os-block" data-os="android">
+          <h3 class="os-block__title">Androidの場合</h3>
+          <!-- 案A（2026-10-13決定）：Androidの画面は未確認。推測で手順を書かず、iPhoneの画面も流用しない -->
+          <div class="android-note">
+            <p>Androidの画面は、機種によって少しずつ違います。<br>講座中は、講師が一緒に画面を確認します。</p>
+            <p>声を使うときに、マイクの使用を許可するか尋ねる画面が出たら、許可して大丈夫です。</p>
+            <p>講座のあとで分からなくなったときは、困っている画面のスクリーンショットを<a href="#help">LINEで送ってください。</a></p>
+            <p>参考として、上の［iPhone］を押すと、iPhoneの画面を見ることができます。ボタンの位置や形は、少し違うことがあります。</p>
+          </div>
+        </div>
 
         <p>これが、あなたからGeminiへの最初のお願いです。</p>
         <p>聞いてみたいことがあれば、そのまま話しかけてみてください。<br>決まった聞き方はありません。</p>
@@ -297,6 +282,10 @@
       <div class="container">
         <h2 class="section__title"><span class="chapter-num">7<span class="visually-hidden">、</span></span><span class="try-label">やってみる<span class="visually-hidden">｜</span></span><span class="phrase">Gemini Liveで</span><span class="phrase">話してみる</span></h2>
         <p>Gemini Liveは、Geminiと声で会話できる機能です。<br>人と話すときと同じ、普通の言葉で話しかけて大丈夫です。</p>
+        <p class="examples__label">答えを聞いたあと、続けて話すときの例</p>
+        <blockquote class="example"><p>「もう少し簡単に説明してください」</p></blockquote>
+        <blockquote class="example"><p>「別の例を教えてください」</p></blockquote>
+        <p>答えのあとも、そのまま会話を続けてかまいません。</p>
 
         <!-- OS切替（JavaScriptが動くときだけ表示） -->
         <div class="os-switch">
@@ -308,64 +297,44 @@
           <p class="os-switch__note">今は、両方の手順を表示しています。</p>
         </div>
 
-        <ol class="steps">
-          <li class="steps__item">
-            <h3 class="steps__title">Gemini Liveを始める</h3>
-            <div class="os-block" data-os="iphone">
-              <h4 class="os-block__title">iPhoneの場合</h4>
-              <!-- 要確認（Michiさん）：Liveを始めるボタンが、欄のいちばん右でよいか -->
-              <ol class="substeps">
-                <li class="substeps__item">
-                  <p class="substeps__text">画面の下の欄の、いちばん右のボタンを押します。</p>
-                  <figure class="screen">
-                    <img src="images/01/live-iphone-01.png" alt="画面の下の欄の、いちばん右のボタンに丸が付いています" width="900" height="239" loading="lazy">
-                  </figure>
-                </li>
-                <li class="substeps__item">
-                  <p class="substeps__text">この画面になったら、話しかけて大丈夫です。</p>
-                  <figure class="screen  screen--full">
-                    <img src="images/01/live-iphone-02.png" alt="Gemini Liveが始まった画面。下のほうに、青く光る部分があります" width="720" height="1416" loading="lazy">
-                  </figure>
-                </li>
-              </ol>
-            </div>
-            <div class="os-block" data-os="android">
-              <h4 class="os-block__title">Androidの場合</h4>
-              <!-- 案A（2026-10-13決定）：Androidの画面は未確認のため、推測で手順を書かない -->
-              <div class="android-note">
-                <p>Androidの画面は、機種によって少しずつ違います。<br>講座中は、講師が一緒に画面を確認します。</p>
-                <p>講座のあとで分からなくなったときは、困っている画面のスクリーンショットを<a href="#help">LINEで送ってください。</a></p>
-                <p>参考として、上の［iPhone］を押すと、iPhoneの画面を見ることができます。ボタンの位置や形は、少し違うことがあります。</p>
-              </div>
-            </div>
-          </li>
-          <li class="steps__item">
-            <h3 class="steps__title">話しかける</h3>
-          </li>
-          <li class="steps__item">
-            <h3 class="steps__title">答えを聞いたら、続けて話してみる</h3>
-            <p class="examples__label">続けて話すときの例</p>
-            <blockquote class="example"><p>「もう少し簡単に説明してください」</p></blockquote>
-            <blockquote class="example"><p>「別の例を教えてください」</p></blockquote>
-          </li>
-          <li class="steps__item">
-            <h3 class="steps__title">Gemini Liveを終える</h3>
-            <div class="os-block" data-os="iphone">
-              <h4 class="os-block__title">iPhoneの場合</h4>
-              <!-- 要確認（Michiさん）：✕で終わり、元の画面に戻るか -->
-              <ol class="substeps">
-                <li class="substeps__item">
-                  <p class="substeps__text">終えるときは、右下の✕のボタンを押します。</p>
-                  <figure class="screen">
-                    <img src="images/01/live-iphone-03.png" alt="Gemini Liveで会話している画面。右下の✕のボタンに丸が付いています" width="900" height="448" loading="lazy">
-                  </figure>
-                </li>
-              </ol>
-            </div>
-          </li>
-        </ol>
-
-        <p>答えのあとも、そのまま会話を続けてかまいません。</p>
+        <div class="os-block" data-os="iphone">
+          <h3 class="os-block__title">iPhoneの場合</h3>
+          <ol class="steps">
+            <li class="steps__item">
+              <h4 class="steps__title">Gemini Liveを始める</h4>
+              <p>画面の下の欄の、いちばん右のボタンを押します。</p>
+              <figure class="screen">
+                <img src="images/01/live-iphone-01.png" alt="画面の下の欄の、いちばん右のボタンに丸が付いています" width="900" height="239" loading="lazy">
+              </figure>
+              <p>声を使うときに、マイクの使用を許可するか尋ねる画面が出たら、許可して大丈夫です。</p>
+            </li>
+            <li class="steps__item">
+              <h4 class="steps__title">話しかける</h4>
+              <!-- 画面：新しい会話からLiveを始めた直後（IMG_5227、2026-10-13撮影） -->
+              <p>この画面になったら、話しかけて大丈夫です。</p>
+              <figure class="screen  screen--full">
+                <img src="images/01/live-iphone-02.png" alt="Gemini Liveが始まった直後の画面。画面の下に、青く光る部分と、カメラ、画面共有、マイク、✕のボタンが並んでいます" width="720" height="1464" loading="lazy">
+              </figure>
+            </li>
+            <li class="steps__item">
+              <h4 class="steps__title">Gemini Liveを終える</h4>
+              <p>終えるときは、右下の✕のボタンを押します。</p>
+              <figure class="screen">
+                <img src="images/01/live-iphone-03.png" alt="Gemini Liveで会話している画面。右下の✕のボタンに丸が付いています" width="900" height="448" loading="lazy">
+              </figure>
+            </li>
+          </ol>
+        </div>
+        <div class="os-block" data-os="android">
+          <h3 class="os-block__title">Androidの場合</h3>
+          <!-- 案A（2026-10-13決定）：Androidの画面は未確認。推測で手順を書かず、iPhoneの画面も流用しない -->
+          <div class="android-note">
+            <p>Androidの画面は、機種によって少しずつ違います。<br>講座中は、講師が一緒に画面を確認します。</p>
+            <p>声を使うときに、マイクの使用を許可するか尋ねる画面が出たら、許可して大丈夫です。</p>
+            <p>講座のあとで分からなくなったときは、困っている画面のスクリーンショットを<a href="#help">LINEで送ってください。</a></p>
+            <p>参考として、上の［iPhone］を押すと、iPhoneの画面を見ることができます。ボタンの位置や形は、少し違うことがあります。</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -375,7 +344,7 @@
       <div class="container">
         <h2 class="section__title section__title--large"><span class="chapter-num">8<span class="visually-hidden">、</span></span><span class="try-label">やってみる<span class="visually-hidden">｜</span></span><span class="mincho"><span class="phrase">もうひとこと、</span><span class="phrase">教えてあげる。</span></span></h2>
         <p>一度で完璧な質問をつくる必要はありません。<br>Geminiの答えを見ながら、ひとことずつ教えてあげれば十分です。</p>
-        <p class="hitokoto__intro">実際の体験から生まれた例です。</p>
+        <p class="hitokoto__intro">実際の体験から生まれた例です。<br>Geminiの答えは長いので、始まりの部分だけを載せています（iPhoneでの例）。<br>実際に聞くと、内容や長さが変わることがあります。</p>
 
         <!-- 参加者の言葉を大きく、Geminiの答えは補助的に（VISUAL v1.0 第1節） -->
         <ol class="hitokoto-flow">
@@ -383,10 +352,10 @@
             <h3 class="hitokoto-flow__label">最初のお願い</h3>
             <blockquote class="example example--large"><p>「食パンの賞味期限が迫っています。<br>明日の朝食に食パンを使ったメニューを紹介してください。」</p></blockquote>
             <div class="answer">
-              <p class="answer__label">Geminiの答え</p>
+              <p class="answer__label">Geminiの答え（一部）</p>
               <figure class="screen">
                     <img src="images/01/hitokoto-answer-1.png" alt="Geminiの答えの始まり。食パンを使った朝食メニューを4つ紹介すると書かれています" width="900" height="478" loading="lazy">
-                    <figcaption>食パンを使った朝食メニューが紹介されました（答えの始まりの部分）。</figcaption>
+                    <figcaption>食パンを使った朝食メニューが紹介されています（答えの始まりの部分）。</figcaption>
                   </figure>
             </div>
           </li>
@@ -394,10 +363,10 @@
             <h3 class="hitokoto-flow__label">もうひとこと</h3>
             <blockquote class="example example--large"><p>「<mark class="marker">冷蔵庫に卵とレタスがあります。<br>それも使いたいです。</mark>」</p></blockquote>
             <div class="answer">
-              <p class="answer__label">Geminiの答え</p>
+              <p class="answer__label">Geminiの答え（一部）</p>
               <figure class="screen">
                     <img src="images/01/hitokoto-answer-2.png" alt="Geminiの答えの始まり。卵とレタス、食パンを組み合わせた朝食メニューを3つ紹介すると書かれています" width="900" height="511" loading="lazy">
-                    <figcaption>卵とレタスを使ったメニューに変わりました。</figcaption>
+                    <figcaption>卵とレタスを使ったメニューに変わっています（答えの始まりの部分）。</figcaption>
                   </figure>
             </div>
           </li>

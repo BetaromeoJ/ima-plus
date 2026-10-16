@@ -1,7 +1,7 @@
 /* ==========================================================================
    IMA+ 研修サイト 共通スクリプト
    役割：iPhone／Androidの手動切替のみ（SPEC v0.2 6-1・第8節）
-   - 自動判定はしない／選択は保存しない（再読み込みで選ぶ前の状態に戻る）
+   - 自動判定はしない／選択は保存しない（再読み込みで初期表示のiPhoneに戻る）
    - JavaScriptが動かない環境では、両方のOSの手順がそのまま表示される
    ========================================================================== */
 (function () {
@@ -16,7 +16,7 @@
   root.classList.remove('no-js');
   root.classList.add('js');
 
-  function selectOs(os) {
+  function selectOs(os, silent) {
     if (!labels[os]) {
       return;
     }
@@ -36,7 +36,7 @@
     });
 
     // 読み上げ環境へ短く知らせる
-    if (status) {
+    if (status && !silent) {
       status.textContent = labels[os] + 'の手順を表示しています';
     }
   }
@@ -46,4 +46,9 @@
       selectOs(button.getAttribute('data-os-select'));
     });
   });
+
+  // 初期表示はiPhone（2026-10-16決定：第1回の参加者が全員iPhoneのため）。
+  // Androidのボタンはそのまま使える。JavaScriptが動かない環境では、これまでどおり両方を表示する。
+  // 今後の講座で「選ぶ前は両方を表示」に戻す場合は、次の1行を削除する。
+  selectOs('iphone', true);
 })();
